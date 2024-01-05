@@ -138,6 +138,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="display\display.cpp" />
+    <ClCompile Include="display\renderer.cpp" />
+    <ClCompile Include="math\quadTree.cpp" />
     <ClCompile Include="simulation\body.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="math\vector.cpp" />
@@ -146,7 +148,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="display\display.h" />
+    <ClInclude Include="display\renderer.h" />
     <ClInclude Include="global.h" />
+    <ClInclude Include="math\quadTree.h" />
     <ClInclude Include="simulation\body.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="math\vector.h" />

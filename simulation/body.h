@@ -6,6 +6,9 @@ public:
 	vector2d position;
 	vector2d velocity;
 	vector2d acceleration;
+	uint8_t density;
+
+
 	Body(float x, float y);
 	Body(vector2d pos, vector2d vel);
 	void setRadius(float r);

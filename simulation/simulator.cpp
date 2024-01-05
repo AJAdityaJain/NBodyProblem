@@ -2,10 +2,47 @@
 
 void Simulator::update(Env* env)
 {
+
 	env->bodies.erase(remove_if(
 		env->bodies.begin(), env->bodies.end(),
 		[](const Body& x) {
-			return x.getMass() == 0; // put your condition here
+			return x.getMass() == 0;
+		}), env->bodies.end());
+
+	n = Node(QUADSIZE);
+
+	for (size_t i = 0; i < env->bodies.size(); i++) {
+		env->bodies[i].acceleration.clear();
+		n.addBody(&env->bodies[i]);
+
+	}
+
+	for (int i = 0; i < env->bodies.size(); i++) {
+		Body* b1 = &env->bodies[i];
+		n.simulate(b1);
+	}
+
+	//ORIGIN = n.centerOfMass;
+
+
+	n.clear(true);
+
+
+	for (int i = 0; i < env->bodies.size(); i++) {
+		Body* b = &env->bodies[i];
+		if (b->getMass() != 0) {
+			b->velocity.setaddvec(b->acceleration);
+			b->position.setaddvec(b->velocity);
+		}
+	}
+}
+
+void naïve(Env* env)
+{
+	env->bodies.erase(remove_if(
+		env->bodies.begin(), env->bodies.end(),
+		[](const Body& x) {
+			return x.getMass() == 0; 
 		}), env->bodies.end());
 
 

@@ -2,18 +2,22 @@
 
 Body::Body(float x, float y)
 {
-		position = vector2d(x, y);
+		position = vector2d(x, y) + ORIGIN;
 		velocity = vector2d(0, 0);
 		acceleration = vector2d(0, 0);
-		setRadius(4);
+		density = 1;
+
+		setMass(40);
 }
 
 Body::Body(vector2d pos, vector2d vel)
 {
-		position = pos;
+		position = pos + ORIGIN;
 		velocity = vel;
 		acceleration = vector2d(0, 0);
-		setRadius(4);
+		density = 1;
+
+		setMass(40);
 }
 
 float Body::getRadius() const
@@ -28,10 +32,10 @@ float Body::getMass()const
 void Body::setRadius(float r)
 {
 	radius = r;
-	mass = r * r * PI;
+	mass = r * r * PI*density;
 }
 void Body::setMass(float m)
 {
 	mass = m;
-	radius = sqrt(m / PI);
+	radius = sqrt(m / (density *PI));
 }

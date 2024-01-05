@@ -5,6 +5,12 @@ vector2d::vector2d(float ix, float iy) {
 	y = iy;
 }
 
+vector2d::vector2d(float i)
+{
+	x = i;
+	y = i;
+}
+
 
 vector2d::vector2d() {
 	x = 0;
@@ -61,13 +67,28 @@ vector2d& vector2d::operator/=(const vector2d& right) {
 	return *this;
 }
 
-vector2d vector2d::addf(float a) {
-	return vector2d(x + a, y + a);
-}
-vector2d& vector2d::addvec(vector2d a) {
+vector2d& vector2d::setaddvec(vector2d a) {
 	x += a.x;
 	y += a.y;
 	return *this;
+}
+vector2d& vector2d::setsubvec(vector2d a) {
+	x -= a.x;
+	y -= a.y;
+	return *this;
+}
+
+vector2d vector2d::addvec(vector2d a) {
+	return vector2d(x + a.x, y + a.y);
+}
+vector2d vector2d::subvec(vector2d a) {
+	return vector2d(x - a.x, y - a.y);
+}
+
+
+
+vector2d vector2d::addf(float a) {
+	return vector2d(x + a, y + a);
 }
 
 vector2d vector2d::mulf(float a) {
@@ -94,13 +115,17 @@ vector2d& vector2d::normalize() {
 	clear();
 	return *this;
 }
+vector2d& vector2d::normalize(float mag) {
+	if (mag > 0) {
+		x /= mag;
+		y /= mag;
 
-//vector2d vector2d::normalized() const {
-//	float l = magnitude();
-//	return vector2d(
-//		x / l,
-//		y / l);
-//}
+		return *this;
+	}
+	clear();
+	return *this;
+}
+
 
 float vector2d::dotProduct(const vector2d& left, const vector2d& right) {
 	return left.x * right.x + left.y * right.y;

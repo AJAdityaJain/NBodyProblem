@@ -33,6 +33,12 @@
     <ClCompile Include="simulation\env.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="math\quadTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="display\renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -54,6 +60,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\quadTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="display\renderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

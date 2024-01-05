@@ -8,6 +8,7 @@ public:
 
 	//constructors
 	vector2d(float ix, float iy);
+	vector2d(float i);
 	vector2d();
 
 	//operators
@@ -24,27 +25,23 @@ public:
 	vector2d mulf(float a);
 	vector2d divf(float a);
 
-	vector2d& addvec(vector2d a);
+	vector2d& setaddvec(vector2d a);
+	vector2d& setsubvec(vector2d a);
+	vector2d addvec(vector2d a);
+	vector2d subvec(vector2d a);
 	//functions
 	/**
 	 * @brief Change the vector length to exactly one
 	 */
 	vector2d& normalize();
-	/**
-	 * @brief Return a vector that is the normelized vector of this vector
-	 * @details [long description]
-	 * @return this vector normilized
-	 */
-	vector2d normalized() const;
+	vector2d& normalize(float mag);
 	/**
 	 * @brief Calcultes the length of the vector and returns it.
 	 * @details [long description]
 	 * @return floathe lenght of this vector
 	 */
-	float absolute() const;
-
-	float magnitudesq() const;
 	float magnitude() const;
+	float magnitudesq() const;
 	void clear();
 	/**
 	 * @brief Calculate the dot product of two vetors.

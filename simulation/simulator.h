@@ -5,4 +5,6 @@
 class Simulator {
 public:
 	void update(Env* world);
+private:
+	Node n;
 };
